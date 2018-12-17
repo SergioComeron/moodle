@@ -4011,7 +4011,7 @@ function forum_print_discussion_header(&$post, $forum, $group = -1, $datestring 
     }
 
     echo '<td class="lastpost">';
-    $usedate = (empty($post->created)) ? $post->timemodified : $post->created;
+    $usedate = (empty($post->created)) ? $post->timemodified : $post->timemodified;
     $parenturl = '';
     $usermodified = new stdClass();
     $usermodified->id = $post->usermodified;
