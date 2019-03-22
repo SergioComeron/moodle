@@ -153,6 +153,12 @@ if ($hassiteconfig
                        array('description' => new lang_string('description'),
                              'city' => new lang_string('city'),
                              'country' => new lang_string('country'),
+                             'phone1' => new lang_string('phone1'),
+                             'phone2' => new lang_string('phone2'),
+                             'address' => new lang_string('address'),
+                             'institution' => new lang_string('institution'),
+                             'department' => new lang_string('department'),
+                             'idnumber' => new lang_string('idnumber'),
                              'timezone' => new lang_string('timezone'),
                              'webpage' => new lang_string('webpage'),
                              'icqnumber' => new lang_string('icqnumber'),
@@ -187,6 +193,7 @@ if ($hassiteconfig
                     'institution' => new lang_string('institution'),
                     'city'        => new lang_string('city'),
                     'country'     => new lang_string('country'),
+                    'address'      => new lang_string('address'),
                 )));
         $setting = new admin_setting_configtext('fullnamedisplay', new lang_string('fullnamedisplay', 'admin'),
             new lang_string('configfullnamedisplay', 'admin'), 'language', PARAM_TEXT, 50);

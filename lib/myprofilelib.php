@@ -122,12 +122,12 @@ function core_myprofile_navigation(core_user\output\myprofile\tree $tree, $user,
     }
 
     // Contact details.
-    if (has_capability('moodle/user:viewhiddendetails', $courseorusercontext)) {
+    if (has_capability('moodle/user:viewhiddendetails', $courseorusercontext) || $iscurrentuser) {
         $hiddenfields = array();
     } else {
         $hiddenfields = array_flip(explode(',', $CFG->hiddenuserfields));
     }
-    if (has_capability('moodle/site:viewuseridentity', $courseorusercontext)) {
+    if (has_capability('moodle/site:viewuseridentity', $courseorusercontext) || $iscurrentuser) {
         $identityfields = array_flip(explode(',', $CFG->showuseridentity));
     } else {
         $identityfields = array();
@@ -172,17 +172,17 @@ function core_myprofile_navigation(core_user\output\myprofile\tree $tree, $user,
         $tree->add_node($node);
     }
 
-    if (isset($identityfields['address']) && $user->address) {
+    if (!isset($hiddenfields['address']) && $user->address) {
         $node = new core_user\output\myprofile\node('contact', 'address', get_string('address'), null, null, $user->address);
         $tree->add_node($node);
     }
 
-    if (isset($identityfields['phone1']) && $user->phone1) {
+    if (!isset($hiddenfields['phone1']) && $user->phone1) {
         $node = new core_user\output\myprofile\node('contact', 'phone1', get_string('phone1'), null, null, $user->phone1);
         $tree->add_node($node);
     }
 
-    if (isset($identityfields['phone2']) && $user->phone2) {
+    if (!isset($hiddenfields['phone2']) && $user->phone2) {
         $node = new core_user\output\myprofile\node('contact', 'phone2', get_string('phone2'), null, null, $user->phone2);
         $tree->add_node($node);
     }
@@ -193,13 +193,13 @@ function core_myprofile_navigation(core_user\output\myprofile\tree $tree, $user,
         $tree->add_node($node);
     }
 
-    if (isset($identityfields['department']) && $user->department) {
+    if (!isset($hiddenfields['department']) && $user->department) {
         $node = new core_user\output\myprofile\node('contact', 'department', get_string('department'), null, null,
             $user->department);
         $tree->add_node($node);
     }
 
-    if (isset($identityfields['idnumber']) && $user->idnumber) {
+    if (!isset($hiddenfields['idnumber']) && $user->idnumber) {
         $node = new core_user\output\myprofile\node('contact', 'idnumber', get_string('idnumber'), null, null,
             $user->idnumber);
         $tree->add_node($node);
