@@ -194,6 +194,12 @@ if ($hassiteconfig
                              'email' => new lang_string('email'),
                              'city' => new lang_string('city'),
                              'country' => new lang_string('country'),
+                             'phone1' => new lang_string('phone1'),
+                             'phone2' => new lang_string('phone2'),
+                             'address' => new lang_string('address'),
+                             'institution' => new lang_string('institution'),
+                             'department' => new lang_string('department'),
+                             'idnumber' => new lang_string('idnumber'),
                              'moodlenetprofile' => new lang_string('moodlenetprofile', 'user'),
                              'timezone' => new lang_string('timezone'),
                              'firstaccess' => new lang_string('firstaccess'),
@@ -227,6 +233,7 @@ if ($hassiteconfig
                         'institution' => new lang_string('institution'),
                         'city'        => new lang_string('city'),
                         'country'     => new lang_string('country'),
+                        'address'     => new lang_string('address'),
                     ];
 
                     // Custom profile fields.
