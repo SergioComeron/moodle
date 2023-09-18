@@ -3303,5 +3303,16 @@ privatefiles,moodle|/user/files.php';
         upgrade_main_savepoint(true, 2023042402.03);
     }
 
+    if ($oldversion < 2023091600.00 {
+        // Add phone1,phone2,institution,department,idnumber,address as hiddenuserfields.
+        set_config('hiddenuserfields', $CFG->hiddenuserfields . ',phone1,phone2,institution,department,idnumber,address');
+        
+        // Remove duplicates
+        $CFG->hiddenuserfields = array_unique($CFG->hiddenuserfields);
+        
+        // Main savepoint reached.
+        upgrade_main_savepoint(true, 2023091600.00);
+    }
+
     return true;
 }
