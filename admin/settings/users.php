@@ -201,8 +201,14 @@ if ($hassiteconfig
         $temp->add(new admin_setting_configcheckbox('autologinguests', new lang_string('autologinguests', 'admin'), new lang_string('configautologinguests', 'admin'), 0));
 
         $temp->add(new admin_setting_configmultiselect('hiddenuserfields', new lang_string('hiddenuserfields', 'admin'),
-                   new lang_string('confighiddenuserfields', 'admin'), array(),
+                   new lang_string('confighiddenuserfields', 'admin'), array('phone1', 'phone2', 'institution', 'department', 'idnumber', 'address'),
                        array('description' => new lang_string('description'),
+                             'phone1' => new lang_string('phone1'),
+                             'phone2' => new lang_string('phone2'),
+                             'institution' => new lang_string('institution'),
+                             'department' => new lang_string('department'),
+                             'idnumber' => new lang_string('idnumber'),
+                             'address' => new lang_string('address'),
                              'email' => new lang_string('email'),
                              'city' => new lang_string('city'),
                              'country' => new lang_string('country'),
