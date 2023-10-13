@@ -196,6 +196,11 @@ class grade_report_overview extends grade_report {
 
             $coursecontext = context_course::instance($course->id);
 
+            if (!is_enrolled($coursecontext,  $USER,  $withcapability = '',  true) && !is_siteadmin()) {
+                // The user is suspended from the course.
+                continue;
+            }
+
             if (!$course->visible && !has_capability('moodle/course:viewhiddencourses', $coursecontext)) {
                 // The course is hidden and the user isn't allowed to see it.
                 continue;
