@@ -407,8 +407,12 @@ class format_weeks extends core_courseformat\base {
             $sectionnum = $section;
         }
 
+        $usertimezonest = core_date::get_user_timezone($USER->timezone);
+        $userdtz = new DateTimeZone($usertimezonest);
+
         // Create a DateTime object for the start date.
         $startdateobj = new DateTime("@$startdate");
+        $startdateobj->setTimezone($userdtz);
 
         // Calculate the interval for one week.
         $oneweekinterval = new DateInterval('P7D');
