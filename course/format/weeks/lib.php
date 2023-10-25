@@ -407,8 +407,18 @@ class format_weeks extends core_courseformat\base {
             $sectionnum = $section;
         }
 
+        if (isset($USER->timezone) && $USER->timezone !== '99') {
+            $usertimezonest = $USER->timezone;
+        } else {
+            // Si el usuario no tiene un timezone establecido específicamente, obtener el timezone por defecto de Moodle.
+            $usertimezonest = core_date::get_server_timezone();
+        }
+
+        $userdtz = new DateTimeZone($usertimezonest);
+
         // Create a DateTime object for the start date.
         $startdateobj = new DateTime("@$startdate");
+        $startdateobj->setTimezone($userdtz);
 
         // Calculate the interval for one week.
         $oneweekinterval = new DateInterval('P7D');
