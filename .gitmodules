@@ -1,0 +1,3 @@
+[submodule "blocks/limesurvey"]
+	path = blocks/limesurvey
+	url = git@github.com:SergioComeron/moodle-block-limesurvey.git
